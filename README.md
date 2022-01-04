@@ -4,7 +4,7 @@ Software package with graphical user interface for plotting and analysis of spec
 
 ## Documentation
 
-The documetation for the graphical user interface is work in progress.
+The documentation for the graphical user interface is work in progress.
 
 The documentation for scripting can be called by typing in the MATLAB command line
 ```
