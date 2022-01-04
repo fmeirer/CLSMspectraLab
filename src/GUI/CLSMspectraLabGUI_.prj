@@ -1,0 +1,101 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\GUI\CLSMspectraLabGUI_.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\GUI" name="CLSMspectraLabGUI_" target="target.mlapps" target-name="Package App">
+    <param.appname>CLSMspectraLabGUI_</param.appname>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.icon />
+    <param.icons />
+    <param.summary />
+    <param.description />
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp222bd7d8_a545_41a9_9468_c10b4d94ae29.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>e339c7ae-c24c-4663-9ba3-e67e1919ce4e</param.guid>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.icon />
+      <param.icons />
+      <param.summary />
+      <param.description />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\CLSMspectraLabGUI_v2.mlapp</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\bin\external\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\classes\@classHandling\classHandling.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\code_non_essential\shared\functions\checkParameter.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20190816_DiffusionLab\objects\superclasses\@classHandling\classHandling.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20190816_DiffusionLab\objects\superclasses\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20190906_DiffusionLab\objects\superclasses\@classHandling\classHandling.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20190906_DiffusionLab\objects\superclasses\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20191101_DiffusionLab\classes\superclasses\@classHandling\classHandling.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB DiffusionLab\src\private\releases\20191101_DiffusionLab\classes\superclasses\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfCheckJavaMemory.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfCheckJavaPath.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfGetFileExtensions.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfGetPlane.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfGetReader.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfInitLogging.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\bfopen.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\bin\external\bfmatlab\private\is_octave.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\CLSMspectraLab.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\computePCAspectraMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\getChannelsROI.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotChannels.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotChannelsROI.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotRatioLog10.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotRGBcolormap.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotRGcolormap.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\@CLSMspectraLab\plotSumIntensity.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\functions\subplotDimensions.m</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src" name="GUI" optional="false">C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis\src\GUI</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2019b</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
