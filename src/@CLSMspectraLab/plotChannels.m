@@ -31,6 +31,7 @@ hps = gobjects(numel(indices),1);
 for ii = indices
     channelInt = getImageProcessed(obj,ii,'mean','c','x','y','z','t'); % in order to have the mask applied, we cannot directly request 'c'
     channelIntVec = nanmean(channelInt,2:5);
+    %channelstdVec = nanstd(channelInt,2:5);
     hps(ii) = plot(ha,(1:numel(channelIntVec)),channelIntVec,'.-');
     hold on
 end
