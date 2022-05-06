@@ -1,26 +1,23 @@
-classdef linear < bgCorrection.abstract
+classdef flatfield < bgCorrection.abstract
     %LINEAR linear background correction spectra
     
     properties(Constant)
-        name = 'Linear background correction';
+        name = 'flatfield background correction';
     end
     
     properties
-        c1 = 1; % first bin
-        c2 = 2; % second bin
+        flatfieldimage% = imageStack()
         uniformBackgroundFlag = true; % if true, compute one background for the full image, if false do per pixel
     end
     
     properties(Hidden)
-        a = []; % slope dy/dx; labels are dimLabel{2:end}
-        b = []; % offset y; labels are dimLabel{2:end}
     end
     
     methods
-        function obj = linear(varargin)
-            %LINEAR Construct an instance of this class
+        function obj = flatfield(varargin)
+            % flatfield Construct an instance of this class
             %   
-            %   obj = linear(varargin) with varargin Name-Value pairs,
+            %   obj = flatfield(varargin) with varargin Name-Value pairs,
             %   e.g. if we set the property 'prop' to 5: 
             %   obj = linear('prop',5).
             
@@ -46,14 +43,16 @@ classdef linear < bgCorrection.abstract
             % obj = compute(obj,iStack) computes and stores the mask of
             % the imageStack object.
             
+            %[file,path] = uigetfile([],'Select Flatfield image')
+            
             if ~any(strcmp('c',iStack.dimLabel)) % does not contain 'c'
                 error('Provided ''imageStack'' does not contain channels ''c''. ')
             end
             
-            if max(obj.c1,obj.c2) > iStack.getDim('c')
-                error('The coefficients are out of range and cannot be larger than % i.',iStack.getDim('c'))
-            end
-            
+           % if max(obj.c1,obj.c2) > iStack.getDim('c')
+           %     error('The coefficients are out of range and cannot be larger than % i.',iStack.getDim('c'))
+           % end
+    
             % get existing dimLabels and place 'c' first
             dimLabel = iStack.dimLabel;
             dimLabel(strcmp('c',dimLabel)) = [];
@@ -63,30 +62,34 @@ classdef linear < bgCorrection.abstract
             % reshape into [channels X pixels]
             Ir = reshape(I,iStack.getDim('c'),prod(dimSize(2:end)));
             
-            % compute a and b of y = ax + b
-            if obj.uniformBackgroundFlag
-                % get the spectrum of the whole image
-                Ispectrum = iStack.getReducedImage('mean','c');
-                
-                obj.a = (Ispectrum(obj.c2)-Ispectrum(obj.c1))/(obj.c2-obj.c1); 
-                obj.b = Ispectrum(obj.c1)-obj.a*obj.c1;
-            else
-                % compute a and b
-                obj.a = (Ir(obj.c2,:)-Ir(obj.c1,:))/(obj.c2-obj.c1); % row vector
-                obj.b = Ir(obj.c1,:)-obj.a*obj.c1; % row vector
-            end
+            % get existing dimLabels and place 'c' first for flatfield image
+            iStackFlatField=obj.flatfieldimage;
+            dimLabelFlatField = iStackFlatField.dimLabel;
+            dimLabelFlatField(strcmp('c',dimLabelFlatField)) = [];
+            dimLabelFlatField = ['c' dimLabelFlatField];
+            IFlatField = iStackFlatField.getReshapedImage(dimLabelFlatField{:});
+            dimSizeFlatField = size(IFlatField);
+            % reshape into [channels X pixels]
+            IrFlatField = reshape(IFlatField,iStackFlatField.getDim('c'),prod(dimSize(2:end)));
             
+            %
+                % get the spectrum of the whole image 
+                
+                Ispectrum = iStack.getReducedImage('mean','c');
+                IspectrumFlatField = iStackFlatField.getReducedImage('mean','c');
+                
             % substract linear fit: [channels X pixels]
             if isinteger(Ir)
                 if isa(class(Ir),'uint64')
                     warning('Data loss may occur during the conversion of uint64 to int64.')
                 end
                 % cast to int64 to allow negative values
-                Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'int64'); % substract and convert to data type Ir
-                Ir = cast(Ir,'int64') - Isubstract;
+                %Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'int64'); % substract and convert to data type Ir
+                 
+                Ir = cast(Ir,'int64') - cast(IFlatField,'int64');
             else
-                Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'like',Ir); % substract and convert to data type Ir
-                Ir = Ir - Isubstract;
+                % Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'like',Ir); % substract and convert to data type Ir
+                Ir = (Ir - IFlatField);
             end
                 
             if ~obj.uniformBackgroundFlag
