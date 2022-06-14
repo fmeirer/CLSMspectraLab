@@ -84,7 +84,7 @@ classdef CLSMspectraLab
                 obj = initMask(obj);
             end
             
-            if ~obj.bgCorrectionFlag || isempty(obj.bgCorrection.I) % without background correction
+            if ~obj.bgCorrectionFlag || isempty(obj.bgCorrection(1).I) % without background correction
                 for ii = 1:numel(obj.mask)
                     obj.mask(ii) = obj.mask(ii).compute(obj.input(ii));
                 end
