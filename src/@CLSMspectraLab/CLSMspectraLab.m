@@ -116,14 +116,23 @@ classdef CLSMspectraLab
             
         end
         
-        function obj = invertMask(obj)
+        function obj = invertMask(obj,idx)
             %INVERTMASK inverts the values for an image containing 0 and 1
             %
             %   Usage:
-            %   obj = invertMask(obj) converts 0 -> 1 and vice versa in
-            %   mask.
+            %   obj = invertMask(obj,idx) converts 0 -> 1 and vice versa in
+            %   mask. idx is the number of the masks that have to be
+            %   inverted, leave empty for all masks
             
-            for ii = 1:numel(obj.mask)
+            if nargin < 2 || isempty(idx)
+                idx = 1:numel(obj.mask);
+            end
+
+            if max(idx) > numel(obj.mask)
+                error('Idx is larger than the number of image masks.')
+            end
+
+            for ii = idx
                 obj.mask(ii) = obj.mask(ii).invertImage;
             end
             
