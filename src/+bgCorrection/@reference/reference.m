@@ -6,7 +6,7 @@ classdef reference < bgCorrection.abstract
     end
     
     properties
-        referenceimage% = imageStack()
+        Iref% = imageStack()
         uniformBackgroundFlag = true; % if true, compute one background for the full image, if false do per pixel
     end
     
@@ -95,10 +95,10 @@ classdef reference < bgCorrection.abstract
                 dimLabelreference = ['c' dimLabelreference];
                 Iref_im = obj.Iref.getReshapedImage(dimLabelreference{:});
                 % reshape into [channels X Y rest]
-                Irreference = reshape(Iref_im,obj.Iref.getDim('c'),prod(dimSize(2:numel(dimSize))));
+%                 Irreference = reshape(Iref_im,obj.Iref.getDim('c'),[]);
                 
                 %if ~obj.uniformBackgroundFlag
-                Ir = (Ir - Irreference);
+                Ir = (Ir - Iref_im);
             end
             
             obj = obj.addImage(Ir,dimLabel_input{:});
