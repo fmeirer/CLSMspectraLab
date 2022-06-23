@@ -2,7 +2,7 @@ classdef reference < bgCorrection.abstract
     %LINEAR linear background correction spectra
     
     properties(Constant)
-        name = 'reference background correction';
+        name = 'reference';
     end
     
     properties
@@ -45,68 +45,63 @@ classdef reference < bgCorrection.abstract
             
             %[file,path] = uigetfile([],'Select Flatfield image')
             
-            if ~any(strcmp('c',iStack.dimLabel)) % does not contain 'c'
-                error('Provided ''imageStack'' does not contain channels ''c''. ')
+            if any(~ismember(iStack.dimLabel,{'c','x','y'})) % does not contain 'c'
+                error('Provided ''imageStack'' does not contain channels ''c'', ''x'', and ''y''.')
             end
             
-            
-            if isempty(obj.referenceimage) % does not contain 'c'
+            if isempty(obj.Iref) % does not contain 'c'
                 error('No reference image was loaded, please load one before doing the reference background correction')
             end
             
-            % get existing dimLabels and place 'c' first
-            dimLabel = iStack.dimLabel;
-            dimLabel(strcmp('c',dimLabel)) = [];
-            dimLabel = ['c' dimLabel];
-            I = iStack.getReshapedImage(dimLabel{:});
-            dimSize = size(I);
-            % reshape into [channels X pixels]
-            Ir = reshape(I,iStack.getDim('c'),prod(dimSize(2:end)));
+            if iStack.getDim('c') ~= obj.Iref.getDim('c')
+                error('The input imageStack does not have the same number of channels as the reference')
+            end
             
-            % get existing dimLabels and place 'c' first for reference image
-            iStackreference=obj.referenceimage;
-            dimLabelreference = iStackreference.dimLabel;
-            dimLabelreference(strcmp('c',dimLabelreference)) = [];
-            dimLabelreference = ['c' dimLabelreference];
-            Ireference = iStackreference.getReshapedImage(dimLabelreference{:});
-            dimSizereference = size(Ireference);
-            % reshape into [channels X pixels]
-            Irreference = reshape(Ireference,iStackreference.getDim('c'),prod(dimSize(2:end)));
+            if ~obj.uniformBackgroundFlag
+                if iStack.getDim('x') ~= obj.Iref.getDim('x') || iStack.getDim('y') ~= obj.Iref.getDim('y')
+                    error('Dimensions input imageStack and reference do not match dimensions in x and y. Use uniformBackgroundFlag = false instead.')
+                end
+            end
             
-            % compute a and b of y = ax + b
+            % get existing dimLabels and place 'c', 'x', 'y' first
+            dimLabel_input = iStack.dimLabel;
+            dimLabel_input(ismember(dimLabel_input,{'c','x','y'})) = [];
+            dimLabel_input = ['c','x','y' dimLabel_input];
+            Ir = iStack.getReshapedImage(dimLabel_input{:});
+%             dimSize = size(I);
+%             % reshape into [channels X pixels]
+%             Ir = reshape(I,iStack.getDim('c'),prod(dimSize(2:end)));
+            
             if obj.uniformBackgroundFlag
                 % get the spectrum of the whole image
-                Ispectrum = iStack.getReducedImage('mean','c');
-                Ispectrumreference = iStackreference.getReducedImage('mean','c');
-                
-                
-                
+                Iref_spec = obj.Iref.getReducedImage('mean','c');
                 
                 % substract reference image spectrum 
                 if isinteger(Ir)
                     if isa(class(Ir),'uint64')
                         warning('Data loss may occur during the conversion of uint64 to int64.')
                     end
-                    Ispectrumreference=cast(Ispectrumreference,'int64');
-                    Ir=cast(Ir,'int64');
-                    %try
-                    Ir = Ir-  repmat(Ispectrumreference,[1,size(Ir,2)]);
-                   % catch
-                    %end
+                    Ir = cast(Ir,'int64') - cast(Iref_spec,'int64');
                 else
                     % Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'like',Ir); % substract and convert to data type Ir
-                    Ir = Ir - repmat(Ispectrumreference,[1,size(Ir,2)]);
+                    Ir = Ir - repmat(Iref_spec,[1,size(Ir,2)]);
                 end
                 
             else
+                
+                % get existing dimLabels and place 'c' first for reference image
+                dimLabelreference = obj.Iref.dimLabel;
+                dimLabelreference(strcmp('c',dimLabelreference)) = [];
+                dimLabelreference = ['c' dimLabelreference];
+                Iref_im = obj.Iref.getReshapedImage(dimLabelreference{:});
+                % reshape into [channels X Y rest]
+                Irreference = reshape(Iref_im,obj.Iref.getDim('c'),prod(dimSize(2:numel(dimSize))));
                 
                 %if ~obj.uniformBackgroundFlag
                 Ir = (Ir - Irreference);
             end
             
-            I = reshape(Ir,dimSize);
-            
-            obj = obj.addImage(I,dimLabel{:});
+            obj = obj.addImage(Ir,dimLabel_input{:});
             obj.unit = iStack.unit;
         end
     end
