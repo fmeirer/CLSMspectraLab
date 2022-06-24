@@ -1,0 +1,15 @@
+function rgb_bins = getRGBbins(wl_start,wl_end,nBins)
+% GETRGBBINS computes the RGB value per bin for plotting 'true' colour
+%   
+%   Usage:
+%   rgb_bins = getRGBbins(wl_start,wl_end,nBins,nDims) computes the
+%   N x 3 matrix rgb_bins_m containing the RGB values for N bins. 
+%   'wl_start' is the wavelength of the first bin, 'wl_end' of the last bin
+%   and the number of bins N is 'nBins'.
+
+[rgb,lambda] = spectrumColors;
+binSIz
+wl_bins = linspace(wl_start,wl_end,nBins);
+rgb_bins = rgb(ismember(lambda',floor(wl_bins)),:); % optional: integrate over rgb values in bin
+
+end
