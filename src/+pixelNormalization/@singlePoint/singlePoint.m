@@ -1,12 +1,13 @@
-classdef sum2one < pixelNormalization.abstract
-    %NORMALIZATION sum-of-all-channels normalization
+classdef singlePoint < pixelNormalization.abstract
+    %SINGLEPOINT sum-of-all-channels normalization
     
     properties(Constant)
-        name = 'sum2one';
+        name = 'Single point';
     end
     
     properties
-        dataType = 'integer'; % use: 'integer' for an unsigned 16 bit or 'float' for a double
+        point = 1; % points which are set to one in normalization. Can also be a vector of points
+        dataType = 'integer'; % use: 'integer' for an unsigned 16 bit (normalizes to bit range) or 'float' for a double
     end
     
     properties(Hidden)
@@ -14,8 +15,8 @@ classdef sum2one < pixelNormalization.abstract
     end
     
     methods
-        function obj = sum2one(varargin)
-            %SUM2ONE Construct an instance of this class
+        function obj = singlePoint(varargin)
+            %SINGLEPOINT Construct an instance of this class
             %   
             %   obj = sum2one(varargin) with varargin Name-Value pairs,
             %   e.g. if we set the property 'prop' to 5: 
@@ -37,8 +38,7 @@ classdef sum2one < pixelNormalization.abstract
         end
         
         function obj = compute(obj,iStack)
-            %COMPUTE computes the domains with similar spectra and stores a
-            %normalized imagestack
+            %COMPUTE computes normalization and stores a normalized imagestack
             %
             % Usage:
             % obj = compute(obj,iStack) computes and stores the normalized 
@@ -57,14 +57,24 @@ classdef sum2one < pixelNormalization.abstract
             % get c x Npixels matrix
             sz = size(I);
             Ir = reshape(I,iStack.getDim('c'),prod(iStack.dimSize)/iStack.getDim('c'));
-            Ir_sum = sum(Ir,1); % outputs double
+
+            % check for 0's to prevent division by 0
+            normFactor = mean(Ir(obj.point,:),1);
+            if min(normFactor(:)) == 0
+                normFactor(normFactor == 0) = 1; % devide by one = ignore
+                warning('Found %i pixels in which the normalization factor is 0. Ignoring Pixels. This warning can be ignored if pixel values >> 1. Otherwise perform normalization without background correction.',sum(normFactor == 0))
+            end
+
             switch obj.dataType
+                % divide by the mean values of obj.point per pixel and
+                % rescale according to data type.
                 case 'integer'
-                    Ir = uint16(double(Ir)./Ir_sum.*65535);
+                    Ir = double(Ir)./normFactor; % mean outputs double
+                    Ir = uint16(Ir./max(Ir,[],'all').*65535);
                 case 'float'
-                    Ir = double(Ir)./Ir_sum;
+                    Ir = double(Ir)./normFactor;
                 otherwise
-                    error('dataType not ''%s'' is not regcognised. Use 'inte
+                    error('dataType not ''%s'' is not recognised. Use ''integer'' or ''float''.',obj.dataType)
             end
             % get original shape back
             I = reshape(uint16(Ir),sz);

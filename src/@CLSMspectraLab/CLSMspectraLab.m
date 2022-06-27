@@ -37,7 +37,7 @@ classdef CLSMspectraLab
             
         end
         
-        function obj = computeBgCorrection(obj)
+        function obj = computeBgCorrection(obj,id)
             %COMPUTEBGCORRECTION computes the background correction for the
             % input image
             %
@@ -45,16 +45,27 @@ classdef CLSMspectraLab
             %   obj = computeBgCorrection(obj) computes the background 
             %   correction following the 1st bgCorrection object in 
             %   obj.bgCorrection for all different input images.
-            
+            %
+            %   obj = computeBgCorrection(obj,id) computes only for index
+            %   'id', which must be a scalar or vector of indices.
+
+            if nargin < 2 || isempty(id)
+                id = 1:obj.nInput;
+            else
+                if max(id) > obj.nInput
+                    error('Largest value id exceeds number of images, got %i (max is %i).',max(id),obj.nInput)
+                end
+            end
+
             if numel(obj.bgCorrection) ~= numel(obj.input)
                 obj = initBgCorrection(obj);
             end
 
-            [iStack,~,name] = getProcessedImageStack(obj,[],'bgCorrection');
+            [iStack,~,name] = getProcessedImageStack(obj,id,'bgCorrection');
             
             
-            for ii = 1:numel(iStack)
-                obj.bgCorrection(ii) = obj.bgCorrection(ii).compute(iStack(ii));
+            for ii = 1:numel(id)
+                obj.bgCorrection(id(ii)) = obj.bgCorrection(id(ii)).compute(iStack(ii));
             end
             fprintf('Computed background correction using %s image.\n',name)
             
@@ -82,22 +93,33 @@ classdef CLSMspectraLab
             
         end
         
-        function obj = computeMask(obj)
+        function obj = computeMask(obj,id)
             %COMPUTEMASK computes the mask for the input image
             %
             %   Usage:
             %   obj = computeMask(obj) computes the mask following the
             %   1st inputMask object in obj.mask for all different input
             %   images.
+            %
+            %   obj = computeMask(obj,id) computes only for index
+            %   'id', which must be a scalar or vector of indices.
             
+            if nargin < 2 || isempty(id)
+                id = 1:obj.nInput;
+            else
+                if max(id) > obj.nInput
+                    error('Largest value id exceeds number of images, got %i (max is %i).',max(id),obj.nInput)
+                end
+            end
+
             if numel(obj.mask) ~= numel(obj.input)
                 obj = initMask(obj);
             end
 
-            [iStack,~,name] = getProcessedImageStack(obj);
+            [iStack,~,name] = getProcessedImageStack(obj,id);
             
-            for ii = 1:numel(iStack)
-                obj.mask(ii) = obj.mask(ii).compute(iStack(ii));
+            for ii = 1:numel(id)
+                obj.mask(id(ii)) = obj.mask(id(ii)).compute(iStack(ii));
             end
             fprintf('Computed mask using %s image.\n',name)
             
@@ -155,23 +177,34 @@ classdef CLSMspectraLab
             
         end
 
-        function obj = computeNormalization(obj)
+        function obj = computeNormalization(obj,id)
             %COMPUTENORMALIZATION computes the normalization for the input image
             %
             %   Usage:
             %   obj = computeNormalization(obj) computes the normalization 
             %   following the 1st normalization object in obj.normalization
             %   for all different input images.
+            %
+            %   obj = computeNormalization(obj,id) computes only for index
+            %   'id', which must be a scalar or vector of indices.
             
-            if numel(obj.mask) ~= numel(obj.input)
+            if nargin < 2 || isempty(id)
+                id = 1:obj.nInput;
+            else
+                if max(id) > obj.nInput
+                    error('Largest value id exceeds number of images, got %i (max is %i).',max(id),obj.nInput)
+                end
+            end
+
+            if numel(obj.normalization) ~= numel(obj.input)
                 obj = initNormalization(obj);
             end
 
-            [iStack,~,name] = getProcessedImageStack(obj,[],'normalization');
+            [iStack,~,name] = getProcessedImageStack(obj,id,'normalization');
             
             
             for ii = 1:numel(iStack)
-                obj.normalization(ii) = obj.normalization(ii).compute(iStack(ii));
+                obj.normalization(id(ii)) = obj.normalization(id(ii)).compute(iStack(ii));
             end
             fprintf('Computed normalization using %s image.\n',name)
             
