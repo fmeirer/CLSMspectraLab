@@ -309,20 +309,10 @@ classdef CLSMspectraLab
             %   images. Depending of the flags and availablity of the
             %   images, either the input, background-corrected, or
             %   normalized imageStack is returned. The order of importance
-            %   is: (1) normalization, (2) background, and (3) input
-            %   images. The mask is returned if available.
-            %   The name can be used to generate printed output for the
-            %   user, e.g. fprintf('Plotting using %s image.\n',name)
+            %   is:            % (1) background
+            % (2) normalization
             %
-            %   [iStack,mask_,name] = getProcessedImageStack(obj,id) only
-            %   gets the images with index 'id'. Must be a scalar or
-            %   vector.
-            %   
-            %   [iStack,mask_,name] = getProcessedImageStack(obj,id,excludeNames)
-            %   where 'exludeNames' is a char/string or cell vector with
-            %   char/string containing the name of the images that should
-            %   be excluded from the order of importance. Allowed tags are:
-            %   'normalization' and 'bgCorrection'.
+            % (-) mask
             
             if nargin < 2 || isempty(id)
                 id = 1:obj.nInput;
