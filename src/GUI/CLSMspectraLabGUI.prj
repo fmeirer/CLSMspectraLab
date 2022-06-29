@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2027088176" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="184431034" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
     <param.email>j.j.e.maris@uu.nl</param.email>
@@ -12,17 +12,16 @@
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp07c72616_b937_4b91_8dc9_6c415d1cabf3.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tpe3733cc9_ae7f_4f0f_a0c4_b307933c41c5.png</param.screenshot>
+    <param.version>0.2</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin</param.output>
+    <param.output>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</param.output>
     <param.guid>f54dbd7c-cbd0-4d88-bca8-9b21ad79c8f0</param.guid>
     <unset>
       <param.description />
-      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />
@@ -32,41 +31,54 @@
       <file>${PROJECT_ROOT}\CLSMspectraLabGUI.mlapp</file>
     </fileset.main>
     <fileset.depfun>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\@unitProps\unitProps.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfCheckJavaMemory.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfCheckJavaPath.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfGetFileExtensions.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfGetPlane.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfGetReader.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfInitLogging.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bfopen.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\private\is_octave.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\nancat\nancat.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\+bgCorrection\@linear\linear.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\+bgCorrection\abstract.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\+imageMask\@firstpcMask\firstpcMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\+imageMask\@firstpcMask\private\compute.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\+imageMask\abstract.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\CLSMspectraLab.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\getChannelsROI.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotChannels.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotChannelsMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotChannelsROI.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotRatioLog10_2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotRGBcolormap2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\plotSumIntensity2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\private\computePCAspectraMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@CLSMspectraLab\private\plotMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\@imageStack\imageStack.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\functions\javaaddpath_for_CLSMspectraLab.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\src\functions\subplotDimensions.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\@unitProps\unitProps.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfCheckJavaMemory.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfCheckJavaPath.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetFileExtensions.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetPlane.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetReader.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfInitLogging.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfopen.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\private\is_octave.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\imageStack-master_20220627\src\@imageStack\imageStack.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\CIE 1931 Standard Observer (1nm).xlsx</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\colorMatchingFunctions.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\lambda2xyz.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\spectrumColors.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\nancat\nancat.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@linear\linear.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@reference\reference.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\abstract.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\firstpcMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\private\compute.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\abstract.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@singlePoint\singlePoint.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@sum2one\sum2one.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\abstract.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\CLSMspectraLab.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\export4XANES_Wizard.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getChannelsROI.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\maskSaturatedPixels.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannels.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannelsMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannelsROI.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotRatioLog10_2D.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotRGBcolormap2D.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotSumIntensity2D.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotTrueColor2D.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\private\computePCAspectraMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\private\plotMask.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\getRGBbins.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\javaaddpath_for_CLSMspectraLab.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\plotTrueColour.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\subplotDimensions.m</file>
     </fileset.depfun>
     <fileset.resources>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin\external\bfmatlab\bioformats_package.jar</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bioformats_package.jar</file>
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1" name="bin" optional="false">C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\MATLAB CLSM spectral analysis_v1\bin</file>
+      <file location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab" name="bin" optional="false">C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</file>
     </build-deliverables>
     <workflow />
     <matlab>

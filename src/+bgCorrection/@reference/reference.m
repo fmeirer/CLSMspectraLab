@@ -78,10 +78,14 @@ classdef reference < bgCorrection.abstract
                 
                 % substract reference image spectrum 
                 if isinteger(Ir)
-                    if isa(class(Ir),'uint64')
-                        warning('Data loss may occur during the conversion of uint64 to int64.')
-                    end
-                    Ir = cast(Ir,'int64') - cast(Iref_spec,'int64');
+                    Ir = Ir - cast(Iref_spec,'like',Ir); % do not allow negative values, assuming input is unsigned integer;
+
+                    % code that allows for negative values. At this point,
+                    % I do not see the advantage of this approach.
+%                     if isa(class(Ir),'uint64')
+%                         warning('Data loss may occur during the conversion of uint64 to int64.')
+%                     end
+%                     Ir = cast(Ir,'int64') - cast(Iref_spec,'int64');
                 else
                     % Isubstract =  cast(((1:iStack.getDim('c'))'.*double(obj.a) + double(obj.b)),'like',Ir); % substract and convert to data type Ir
                     Ir = Ir - repmat(Iref_spec,[1,size(Ir,2)]);

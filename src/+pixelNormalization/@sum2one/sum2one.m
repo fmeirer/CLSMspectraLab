@@ -1,5 +1,8 @@
 classdef sum2one < pixelNormalization.abstract
-    %NORMALIZATION sum-of-all-channels normalization
+    %NORMALIZATION sum-of-all-channels normalization.
+    %
+    % Absolute value of negative pixel values are taken to prevent
+    % sum of pixel cose to zero.
     
     properties(Constant)
         name = 'sum2one';
@@ -57,17 +60,20 @@ classdef sum2one < pixelNormalization.abstract
             % get c x Npixels matrix
             sz = size(I);
             Ir = reshape(I,iStack.getDim('c'),prod(iStack.dimSize)/iStack.getDim('c'));
-            Ir_sum = sum(Ir,1); % outputs double
+            normFactor = sum(abs(Ir),1); % outputs double
+            % take abs to deal with negative values, leading to normalization factor close to zero
+            normFactor(normFactor == 0) = 1; % skip zeros
+
             switch obj.dataType
                 case 'integer'
-                    Ir = uint16(double(Ir)./Ir_sum.*65535);
+                    Ir = uint16(double(Ir)./normFactor.*65535);
                 case 'float'
-                    Ir = double(Ir)./Ir_sum;
+                    Ir = double(Ir)./normFactor;
                 otherwise
                     error('dataType not ''%s'' is not recognised. Use ''integer'' or ''float''.',obj.dataType)
             end
             % get original shape back
-            I = reshape(uint16(Ir),sz);
+            I = reshape(Ir,sz);
             
             obj = obj.addImage(I,dimLabel_input{:});
             obj.unit = iStack.unit;
@@ -76,4 +82,10 @@ classdef sum2one < pixelNormalization.abstract
             
     end
 end
+
+%             if sum(Ir_sum == 0) > 0
+%                 N = Ir_sum == 0; % gives Inf
+%                 Ir_sum(N) = 1; % devide by one or negative value = ignore
+%                 warning('Found %i pixels in which the normalization factor is 0. Ignoring Pixels.\nThis warning can be ignored if pixel values >> 1.\nOtherwise perform normalization without background correction.',sum(N))
+%             end
 

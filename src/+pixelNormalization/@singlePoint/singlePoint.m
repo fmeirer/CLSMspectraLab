@@ -59,11 +59,9 @@ classdef singlePoint < pixelNormalization.abstract
             Ir = reshape(I,iStack.getDim('c'),prod(iStack.dimSize)/iStack.getDim('c'));
 
             % check for 0's to prevent division by 0
-            normFactor = mean(Ir(obj.point,:),1);
-            if min(normFactor(:)) == 0
-                normFactor(normFactor == 0) = 1; % devide by one = ignore
-                warning('Found %i pixels in which the normalization factor is 0. Ignoring Pixels. This warning can be ignored if pixel values >> 1. Otherwise perform normalization without background correction.',sum(normFactor == 0))
-            end
+            % take abs to deal with negative values, leading to normalization factor close to zero
+            normFactor = mean(abs(Ir(obj.point,:)),1);
+            normFactor(normFactor == 0) = 1; % skip zeros
 
             switch obj.dataType
                 % divide by the mean values of obj.point per pixel and
@@ -77,7 +75,7 @@ classdef singlePoint < pixelNormalization.abstract
                     error('dataType not ''%s'' is not recognised. Use ''integer'' or ''float''.',obj.dataType)
             end
             % get original shape back
-            I = reshape(uint16(Ir),sz);
+            I = reshape(Ir,sz);
             
             obj = obj.addImage(I,dimLabel_input{:});
             obj.unit = iStack.unit;
@@ -87,3 +85,8 @@ classdef singlePoint < pixelNormalization.abstract
     end
 end
 
+%             if min(normFactor(:)) <= 0
+%                 N = normFactor <= 0;
+%                 normFactor(N) = 1; % devide by one or negative value = ignore
+%                 warning('Found %i pixels in which the normalization factor is <= 0. Ignoring Pixels.\nThis warning can be ignored if pixel values >> 1.\nOtherwise perform normalization without background correction.',sum(N))
+%             end
