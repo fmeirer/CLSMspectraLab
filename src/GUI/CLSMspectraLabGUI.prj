@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="184431034" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2532166968" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
     <param.email>j.j.e.maris@uu.nl</param.email>
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tpe3733cc9_ae7f_4f0f_a0c4_b307933c41c5.png</param.screenshot>
-    <param.version>0.2</param.version>
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp0dd10d65_1e27_42f4_b3ed_ddf5e2716253.png</param.screenshot>
+    <param.version>0.21</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -21,6 +21,9 @@
     <param.output>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</param.output>
     <param.guid>f54dbd7c-cbd0-4d88-bca8-9b21ad79c8f0</param.guid>
     <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
       <param.description />
       <param.products.name />
       <param.products.id />
@@ -52,6 +55,7 @@
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\firstpcMask.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\private\compute.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\abstract.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@max2one\max2one.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@singlePoint\singlePoint.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@sum2one\sum2one.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\abstract.m</file>
@@ -82,10 +86,40 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2019b</root>
+      <root>C:\Program Files\MATLAB\R2021b</root>
       <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="gpucoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabhdlcoder" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <gpucoder>
+          <enabled>true</enabled>
+        </gpucoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
       <toolbox>
         <neuralnetwork>
           <enabled>true</enabled>
