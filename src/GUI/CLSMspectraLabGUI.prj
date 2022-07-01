@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2532166968" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1215433187" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
     <param.email>j.j.e.maris@uu.nl</param.email>
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp0dd10d65_1e27_42f4_b3ed_ddf5e2716253.png</param.screenshot>
-    <param.version>0.21</param.version>
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tpdad79eea_7bbc_4268_8d9a_a2da5d6527b2.png</param.screenshot>
+    <param.version>0.22</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -43,7 +43,7 @@
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfInitLogging.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfopen.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\private\is_octave.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\imageStack-master_20220627\src\@imageStack\imageStack.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\imageStack-master_20220701\src\@imageStack\imageStack.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\CIE 1931 Standard Observer (1nm).xlsx</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\colorMatchingFunctions.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\lambda2xyz.m</file>
@@ -61,6 +61,7 @@
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\abstract.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\CLSMspectraLab.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\export4XANES_Wizard.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getBinnedObj.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getChannelsROI.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\maskSaturatedPixels.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannels.m</file>
