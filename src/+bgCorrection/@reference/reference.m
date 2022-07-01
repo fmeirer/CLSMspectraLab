@@ -8,6 +8,7 @@ classdef reference < bgCorrection.abstract
     properties
         Iref% = imageStack()
         uniformBackgroundFlag = true; % if true, compute one background for the full image, if false do per pixel
+        binFactor = 1; % bin factor of the reference spectrum is diectly applied after import.
     end
     
     properties(Hidden)
@@ -42,27 +43,32 @@ classdef reference < bgCorrection.abstract
             % Usage:
             % obj = compute(obj,iStack) computes and stores the mask of
             % the imageStack object.
-            
-            %[file,path] = uigetfile([],'Select Flatfield image')
+
+            if isempty(obj.Iref) % does not contain 'c'
+                error('No reference image was loaded, please load one before doing the reference background correction')
+            end
+
+            % perform binning
+            if obj.binFactor ~= 1
+                Iref_ = obj.Iref.binImageFirst2Dims(obj.binFactor,'x','y','z','t','c');
+            else
+                Iref_ = obj.Iref;
+            end
             
             if any(~ismember(iStack.dimLabel,{'c','x','y'})) % does not contain 'c'
                 error('Provided ''imageStack'' does not contain channels ''c'', ''x'', and ''y''.')
             end
             
-            if isempty(obj.Iref) % does not contain 'c'
-                error('No reference image was loaded, please load one before doing the reference background correction')
-            end
-            
-            if iStack.getDim('c') ~= obj.Iref.getDim('c')
+            if iStack.getDim('c') ~= Iref_.getDim('c')
                 error('The input imageStack does not have the same number of channels as the reference')
             end
             
             if ~obj.uniformBackgroundFlag
-                if iStack.getDim('x') ~= obj.Iref.getDim('x') || iStack.getDim('y') ~= obj.Iref.getDim('y')
+                if iStack.getDim('x') ~= Iref_.getDim('x') || iStack.getDim('y') ~= Iref_.getDim('y')
                     error('Dimensions input imageStack and reference do not match dimensions in x and y. Use uniformBackgroundFlag = false instead.')
                 end
             end
-            
+
             % get existing dimLabels and place 'c', 'x', 'y' first
             dimLabel_input = iStack.dimLabel;
             dimLabel_input(ismember(dimLabel_input,{'c','x','y'})) = [];
@@ -74,7 +80,7 @@ classdef reference < bgCorrection.abstract
             
             if obj.uniformBackgroundFlag
                 % get the spectrum of the whole image
-                Iref_spec = obj.Iref.getReducedImage('mean','c');
+                Iref_spec = Iref_.getReducedImage('mean','c');
                 
                 % substract reference image spectrum 
                 if isinteger(Ir)
@@ -94,10 +100,10 @@ classdef reference < bgCorrection.abstract
             else
                 
                 % get existing dimLabels and place 'c' first for reference image
-                dimLabelreference = obj.Iref.dimLabel;
+                dimLabelreference = Iref_.dimLabel;
                 dimLabelreference(strcmp('c',dimLabelreference)) = [];
                 dimLabelreference = ['c' dimLabelreference];
-                Iref_im = obj.Iref.getReshapedImage(dimLabelreference{:});
+                Iref_im = Iref_.getReshapedImage(dimLabelreference{:});
                 % reshape into [channels X Y rest]
 %                 Irreference = reshape(Iref_im,obj.Iref.getDim('c'),[]);
                 

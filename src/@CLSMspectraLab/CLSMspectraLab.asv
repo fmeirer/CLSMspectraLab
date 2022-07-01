@@ -18,13 +18,9 @@ classdef CLSMspectraLab
         normalization = pixelNormalization.sum2one; % normalization from normalization domain for clustering
         normalizationFlag = true; % if true, the normalization is applied
     end
-
-    properties(SetAccess = private,Hidden)
-        binFactor = 1;
-    end
     
     methods
-        function obj = CLSMspectraLab(filepath,binFactor)
+        function obj = CLSMspectraLab(filepath)
             %CLSMSPECTRALAB Construct an instance of this class
             %   obj = CLSMspectraLab(filepath): accepts 
             %   a string with the file path to the image file or a cell
@@ -33,19 +29,12 @@ classdef CLSMspectraLab
             %   CLSMspectraLab class.
             %
             %   obj = CLSMspectraLab(iStack): accepts an imageStack object
-            %   or array of objects. Returns an instance of the  
+            %   or array of objects, which are directly 
+            %    Returns an instance of the  
             %   CLSMspectraLab class.
-            %
-            %   obj = CLSMspectraLab(...,binFactor): allows the
-            %   storage of the binFactor, which can be used by other
-            %   functions. Default values is 1 (no binning).
             
             if nargin < 1
                 filepath = [];
-            end
-
-            if nargin > 1
-                obj.binFactor = binFactor;
             end
             
             % write to object
