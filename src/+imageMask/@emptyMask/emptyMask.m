@@ -1,4 +1,4 @@
-classdef customMask < imageMask.abstract
+classdef emptyMask < imageMask.abstract
     %CUSTOM Custom loaded mask
     
     properties(Constant)
@@ -6,7 +6,7 @@ classdef customMask < imageMask.abstract
     end
     
     methods
-        function obj = customMask(varargin)
+        function obj = emptyMask(varargin)
             %CUSTOMMASK Construct an instance of this class
             if nargin > 0
                 nIn = numel(varargin);
@@ -30,8 +30,16 @@ classdef customMask < imageMask.abstract
             % obj = compute(obj,imageStack) stores the mask of imageStack,
             % which is an imageStack object.
             
-            % add
-            obj = obj.addImage(I,'x','y');
+            % get labels without C
+            dimLabel = imageStack.dimLabel;
+            dimSize = imageStack.dimSize;
+            idx_c = strcmp(dimLabel,'c');
+            dimSize(idx_c) = [];
+            dimLabel(idx_c) = [];
+            
+            % create image with ones, all is included in mask
+            I = ones(dimSize);
+            obj = obj.addImage(I,dimLabel{:});
             obj.unit = imageStack.unit;
         end
 
