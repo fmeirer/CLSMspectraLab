@@ -1,9 +1,9 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1215433187" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2688142123" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
-    <param.email>j.j.e.maris@uu.nl</param.email>
-    <param.company>Utrecht University</param.company>
+    <param.email />
+    <param.company />
     <param.icon>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_24.png</param.icon>
     <param.icons>
       <file>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_48.png</file>
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tpdad79eea_7bbc_4268_8d9a_a2da5d6527b2.png</param.screenshot>
-    <param.version>0.22</param.version>
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp3f7ef01c_d000_4c4d_b16c_e716465751a3.png</param.screenshot>
+    <param.version>0.24</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -21,7 +21,6 @@
     <param.output>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</param.output>
     <param.guid>f54dbd7c-cbd0-4d88-bca8-9b21ad79c8f0</param.guid>
     <unset>
-      <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.description />
@@ -52,6 +51,7 @@
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@linear\linear.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@reference\reference.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\abstract.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@emptyMask\emptyMask.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\firstpcMask.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\private\compute.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\abstract.m</file>
@@ -63,6 +63,7 @@
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\export4XANES_Wizard.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getBinnedObj.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getChannelsROI.m</file>
+      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getXANES_WizardSpectrum.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\maskSaturatedPixels.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannels.m</file>
       <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannelsMask.m</file>
@@ -87,40 +88,10 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2021b</root>
+      <root>C:\Program Files\MATLAB\R2019b</root>
       <toolboxes>
-        <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="gpucoder" />
-        <toolbox name="fixedpoint" />
-        <toolbox name="matlabhdlcoder" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <gpucoder>
-          <enabled>true</enabled>
-        </gpucoder>
-      </toolbox>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
-      </toolbox>
       <toolbox>
         <neuralnetwork>
           <enabled>true</enabled>

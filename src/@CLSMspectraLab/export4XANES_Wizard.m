@@ -29,7 +29,7 @@ tags = {obj.input.tag};
 [C,ia,ic] = unique(tags);
 for ii = 1:numel(ia)
     idx = find(ic==ii);
-    if isempty(C{ia})
+    if isempty(C(ia))
         for jj = 1:numel(idx)
             tags{idx(jj)} = 'no_name';
         end
@@ -42,7 +42,16 @@ for ii = 1:numel(ia)
     end
 end
 
-if nargin > 2
+% get flag, if true export wavelengths in file energies.txt
+if nargin < 3
+    saveWavelengthFlag = false;
+elseif isempty(varargin{1})
+    saveWavelengthFlag = false;
+else
+    saveWavelengthFlag = true;
+end
+
+if saveWavelengthFlag
     if isnumeric(varargin{1})
         wavelengths_bin_cell = cell(obj.nInput,1);
         wavelengths_bin_cell(:) = varargin{1};
@@ -71,7 +80,7 @@ for ii = 1:obj.nInput
         imwrite(I(:,:,jj),fullfile(dirname_sub,fn{jj}))
     end
     
-    if nargin > 2
+    if saveWavelengthFlag
         wavelengths_bin = wavelengths_bin_cell{ii};
         writematrix(wavelengths_bin(:),fullfile(dirname_sub,'energies.txt'))
     end
