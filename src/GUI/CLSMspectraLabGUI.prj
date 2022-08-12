@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="2688142123" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4189504506" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
     <param.email />
@@ -12,8 +12,8 @@
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp3f7ef01c_d000_4c4d_b16c_e716465751a3.png</param.screenshot>
-    <param.version>0.24</param.version>
+    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp08f2c9ea_ee8e_4015_8698_b1576a4e1036.png</param.screenshot>
+    <param.version>0.25</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
