@@ -39,11 +39,12 @@ classdef linear < bgCorrection.abstract
             end
         end
         
-        function obj = compute(obj,iStack)
+        function obj = compute(obj,iStack,varargin)
             %COMPUTE computes the domains with similar spectra and stores a mask
             %
             % Usage:
-            % obj = compute(obj,iStack) computes and stores the mask of
+            % obj = compute(obj,iStack,mask) computes and stores the
+            % background correction, with mask applied
             % the imageStack object.
             
             if ~any(strcmp('c',iStack.dimLabel)) % does not contain 'c'
@@ -52,6 +53,12 @@ classdef linear < bgCorrection.abstract
             
             if max(obj.c1,obj.c2) > iStack.getDim('c')
                 error('The coefficients are out of range and cannot be larger than % i.',iStack.getDim('c'))
+            end
+            
+            if nargin < 3
+                mask = [];
+            else
+                mask = varargin{1};
             end
             
             % get existing dimLabels and place 'c' first
@@ -66,7 +73,12 @@ classdef linear < bgCorrection.abstract
             % compute a and b of y = ax + b
             if obj.uniformBackgroundFlag
                 % get the spectrum of the whole image
-                Ispectrum = iStack.getReducedImage('mean','c');
+                if isempty(mask)
+                    Ispectrum = iStack.getReducedImage('mean','c');
+                else
+                    Ispectrum = iStack.applyMask(mask,'mean','x','y','z','t','c'); % do with mask
+                    Ispectrum = squeeze(mean(Ispectrum,[1 2 3 4],'omitnan'));
+                end
                 obj.a = (Ispectrum(obj.c2)-Ispectrum(obj.c1))/(obj.c2-obj.c1);
                 obj.b = Ispectrum(obj.c1)-obj.a*obj.c1;
             else

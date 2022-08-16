@@ -6,7 +6,7 @@ classdef (Abstract) abstract < imageStack
     end
     
     methods (Abstract)
-        obj = compute(obj,imageStack); % compute the background correction
+        obj = compute(obj,imageStack,varargin); % compute the background correction
     end
     
     methods

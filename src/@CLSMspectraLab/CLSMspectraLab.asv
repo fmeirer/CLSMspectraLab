@@ -86,14 +86,8 @@ classdef CLSMspectraLab
             
             % note that bgCorrection also needs mask_ for linear
             % bgCorrection
-            if isempty(mask_)
-                for ii = 1:numel(id)
-                    obj.bgCorrection(id(ii)) = obj.bgCorrection(id(ii)).compute(iStack(ii));
-                end
-            else
-                for ii = 1:numel(id)
-                    obj.bgCorrection(id(ii)) = obj.bgCorrection(id(ii)).compute(iStack(ii),mask_(ii));
-                end
+            for ii = 1:numel(id)
+                obj.bgCorrection(id(ii)) = obj.bgCorrection(id(ii)).compute(iStack(ii),mask_(ii));
             end
             fprintf('Computed background correction using %s image.\n',name)
             

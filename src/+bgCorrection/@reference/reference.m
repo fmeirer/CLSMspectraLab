@@ -37,7 +37,7 @@ classdef reference < bgCorrection.abstract
             end
         end
         
-        function obj = compute(obj,iStack)
+        function obj = compute(obj,iStack,varargin)
             %COMPUTE computes the domains with similar spectra and stores a mask
             %
             % Usage:
