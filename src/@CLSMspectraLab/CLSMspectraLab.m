@@ -335,9 +335,9 @@ classdef CLSMspectraLab
             [iStack,mask_,name] = getProcessedImageStack(obj,id);
 
             if ~isempty(mask_)
-                [varargout{1:nargout}] = iStack(id).getIbins(mask_,modus,binLabel,binIdx,varargin{:});
+                [varargout{1:nargout}] = iStack.getIbins(mask_,modus,binLabel,binIdx,varargin{:});
             else
-                [varargout{1:nargout}] = iStack(id).getIbins([],modus,binLabel,binIdx,varargin{:});
+                [varargout{1:nargout}] = iStack.getIbins([],modus,binLabel,binIdx,varargin{:});
             end
             fprintf('Getting bins from %s image.\n',name)
             

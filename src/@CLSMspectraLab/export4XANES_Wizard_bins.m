@@ -1,20 +1,21 @@
-function export4XANES_Wizard(obj,dirname,varargin)
-%EXPORT4XANES_WIZARD Export function to TXM_XANES_Wizard
+function export4XANES_Wizard_bins(obj,dirname,varargin)
+%EXPORT4XANES_WIZARD_BINS Export function to TXM_XANES_Wizard
 %   
 %   Usage:
-%   export4XANES_Wizard(obj,dirname) exports the images in obj for import
+%   export4XANES_Wizard(obj,dirname,varargin) exports the images in obj for import
 %   in TXM_XANES_Wizard in the folder dirname. Leave dirname empty for a
 %   file selection dialog. In the folder dirname, new folders are made with
-%   name of the tag of the image. Each bin is save as tiff image. The
+%   'bin_' + name of the tag of the image . Each bin is save as tiff image. The
 %   images are saved without mask applied. The mask is saved separately in
 %   mask.mat, if obj.maskFlag is true. Background correction is applied if
 %   obj.bgCorrectionFlag = true.
-%
-%   export4XANES_Wizard(obj,dirname,wavelengths) with wavelengths a vector
-%   with the wavelength of each bin saves these value in a energies.txt. If
-%   wavelengths is a cell with vectors, each cell element is saved for each
-%   image.
+%   The exported channels are taken from the row vectors with bin indices 
+%   supplied in varargin. The last exported channel is the non-nor
 %   
+
+if nargin < 4
+    error('Please provide at least one bin.')
+end
 
 if nargin < 2 || isempty(dirname)
     dirname = uigetdir();
@@ -42,24 +43,6 @@ for ii = 1:numel(ia)
     end
 end
 
-% get flag, if true export wavelengths in file energies.txt
-if nargin < 3
-    saveWavelengthFlag = false;
-elseif isempty(varargin{1})
-    saveWavelengthFlag = false;
-else
-    saveWavelengthFlag = true;
-end
-
-if saveWavelengthFlag
-    if isnumeric(varargin{1})
-        wavelengths_bin_cell = cell(obj.nInput,1);
-        wavelengths_bin_cell(:) = varargin{1};
-    else
-        wavelengths_bin_cell = varargin{1};
-    end
-end
-
 doMask = false;
 if obj.maskFlag == true
     obj.maskFlag = false;
@@ -71,23 +54,55 @@ for ii = 1:obj.nInput
         warning('Input %i is not an image with dimensions ''x'', ''y'', ''c''. Skipping this input.',ii)
         continue
     end
+    if ~isa(obj.normalization(ii),'pixelNormalization.sum2one') % check if normalization is sum
+        warning('Input %i does not have a sum2one normalization. Skipping this input.',ii)
+        continue
+    end
     % only does XYC
-    dirname_sub = [dirname filesep tags{ii}];
+    dirname_sub = [dirname filesep 'bin_' tags{ii}];
     if ~exist(dirname_sub, 'dir')
         mkdir(dirname_sub)
     end
-%     I = obj.input(ii).getReshapedImage('x','y','c');
-    I = obj.getImageProcessed(ii,'reshaped','x','y','c');
-    fn = cell(obj.input(ii).getDim('c'),1);
-    for jj = 1:obj.input(ii).getDim('c')
+    
+    % get channels with normalization applied
+    I_r = obj.getImageProcessed(ii,'reshaped','c','x','y');
+    nBins = numel(varargin);
+    nChannels = obj.input(ii).getDim('c'); % assume that number of c has not bee modified during processing
+    I = nan(obj.input(ii).getDim('x'),obj.input(ii).getDim('y'),nBins+1);
+    for jj = 1:nBins
+        binIdx = varargin{jj};
+        if max(binIdx) > nChannels
+            error('Supplied bin indices exceed number of channels %i in input %i.',nChannels,jj)
+        end
+        I(:,:,jj) = sum(I_r(binIdx,:,:),1);
+    end
+    
+    % for export convert to uint16
+    if isa(I_r,'double')
+        I = uint16(I.*65535);
+    else
+        I = uint16(I);
+    end
+    
+    % get channel intensity without normalization applied
+    normalizationFlag = obj.normalizationFlag; % store normalization flag
+    
+    obj.normalizationFlag = false; % get intensity without normalization
+    I_r_noNormalization = obj.getImageProcessed(ii,'reshaped','c','x','y');
+    obj.normalizationFlag = normalizationFlag; % restore normalization flag
+    
+    I_noNormalization = squeeze(sum(I_r_noNormalization(double(string([varargin{:}])),:,:),1)); % sum all channels for intensity channel
+    I_noNormalization = double(I_noNormalization); % normalize as double
+    I_noNormalization = I_noNormalization./max(I_noNormalization,[],'all'); % normalize intensity
+    I(:,:,end) = uint16(I_noNormalization.*65535); % convert back to uint16
+    
+    fn = cell(nBins+1,1);
+    for jj = 1:nBins+1
         fn{jj} = sprintf('%.5i.tiff',jj);
         imwrite(I(:,:,jj),fullfile(dirname_sub,fn{jj}))
     end
     
-    if saveWavelengthFlag
-        wavelengths_bin = wavelengths_bin_cell{ii};
-        writematrix(wavelengths_bin(:),fullfile(dirname_sub,'energies.txt'))
-    end
+    writematrix((1:size(I,3))',fullfile(dirname_sub,'energies.txt'))
     
     if doMask
         % mask
