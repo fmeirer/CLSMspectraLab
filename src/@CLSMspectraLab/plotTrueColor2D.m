@@ -36,12 +36,12 @@ I = squeeze(I(:,:,Zidx,Tidx,:)); % [X Y C]
 if nargin == 6
     rgb_bins = varargin{1};
     plotTrueColour(ha,I,rgb_bins)
-elseif nargin == 9
+elseif nargin == 8
     wl_start = varargin{1};
     wl_end = varargin{2};
     nBins = varargin{3};
     plotTrueColour(ha,I,getRGBbins(wl_start,wl_end,nBins));
 else
-    error('Number of inputs not supported. Got %i, need 6 or 9.',nargin)
+    error('Number of inputs not supported. Got %i, need 6 or 8.',nargin)
 end
 
