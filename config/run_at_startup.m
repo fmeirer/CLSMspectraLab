@@ -4,4 +4,4 @@
 folder = fileparts(which(mfilename)); 
 addpath(genpath(fullfile(folder,['..' filesep])));
 
-javaaddpath('/../bin/external/bfmatlab/bioformats_package.jar')
+javaaddpath('../bin/external/bfmatlab/bioformats_package.jar')

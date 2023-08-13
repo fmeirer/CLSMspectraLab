@@ -13,7 +13,7 @@ function out = resemblanceFit(obj,id,thresholdbgk,thresholdal,pathReference)
 % n2=normalized data matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-data1 = csvread(pathReference,1,0); % provide address of CSV file for reference spectra with order as specified in template CSV file
+data1 = readmatrix(pathReference); % provide address of CSV file for reference spectra with order as specified in template CSV file
 
 bgk=data1(:,1);
 Clay=data1(:,2);
