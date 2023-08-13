@@ -1,5 +1,5 @@
-function varargout = plotChannels(obj,ha,indices)
-% PLOTCHANNELS plots the average intensity per channels.
+function varargout = plotChannelsClusters(obj,ha,indices)
+% PLOTCHANNELSCLUSTERS plots the average intensity per channel in a cluster.
 %
 %   Usage:
 %   plotChannels(obj,ha) plots the average intensity per channel over
@@ -27,17 +27,28 @@ if max(indices) > obj.nInput
     error('Not all specified indices do exist.')
 end
 
-hps = gobjects(numel(indices),1);
+
+channelVals = obj.getChannelsClusters(indices);
+hps = [];
+kk = 1;
+legNames = {};
 for ii = indices
-    channelInt = getImageProcessed(obj,ii,'mean','c','x','y','z','t'); % in order to have the mask applied, we cannot directly request 'c'
-    channelIntVec = mean(channelInt,2:5,'omitnan');
-    hps(ii) = plot(ha,(1:numel(channelIntVec)),channelIntVec,'.-');
-    hold on
+    hps = [hps; gobjects(obj.clustering(ii).nClusters,1)];
+    for jj = 1:obj.clustering(ii).nClusters
+        hps(kk) = plot(ha,(1:size(channelVals{ii},1)),channelVals{ii}(:,jj),'.-');
+        if numel(indices) == 1
+            legNames{kk} = sprintf('Cluster %s',num2str(jj));
+        else
+            legNames{kk} = sprintf('Data %s, cluster %s',num2str(ii),num2str(jj));
+        end
+        kk = kk + 1;
+        hold on
+    end
 end
 
 xlabel(ha,'Channel')
 ylabel(ha,'Mean intensity')
-legend(string(indices))
+legend(legNames{:})
 
 % Output
 if nargout > 0

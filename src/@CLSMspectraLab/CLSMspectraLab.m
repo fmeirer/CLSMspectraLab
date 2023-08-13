@@ -17,6 +17,8 @@ classdef CLSMspectraLab
         maskFlag = true; % if true, the mask is applied
         normalization = pixelNormalization.sum2one; % normalization from normalization domain for clustering
         normalizationFlag = true; % if true, the normalization is applied
+        clustering = pixelClustering.importXANESwizard; % clustering of pixels into classes
+        clusteringFlag = true; % if true, clustering is applied (will this be necessary??)
     end
 
     properties(SetAccess = private,Hidden)
@@ -253,6 +255,56 @@ classdef CLSMspectraLab
             em = obj.normalization.empty(0,numel(obj.input));
             em(1,:) = obj.normalization(1);
             obj.normalization = em;
+            
+        end
+
+        function obj = computeClustering(obj,id)
+            %COMPUTECLUSTERING computes the clustering for the input image
+            %
+            %   Usage:
+            %   obj = computeClustering(obj) computes the clustering following the
+            %   1st pixelClustering object in obj.clustering for all different input
+            %   images.
+            %
+            %   obj = computeClustering(obj,id) computes only for index
+            %   'id', which must be a scalar or vector of indices.
+            
+            if nargin < 2 || isempty(id)
+                id = 1:obj.nInput;
+            else
+                if max(id) > obj.nInput
+                    error('Largest value id exceeds number of images, got %i (max is %i).',max(id),obj.nInput)
+                end
+            end
+
+            if numel(obj.clustering) ~= numel(obj.input)
+                obj = initClustering(obj);
+            end
+
+            [iStack,~,name] = getProcessedImageStack(obj,id);
+            
+            for ii = 1:numel(id)
+                obj.clustering(id(ii)) = obj.clustering(id(ii)).compute(iStack(ii));
+            end
+            fprintf('Loaded clustering or computed clustering using %s image.\n',name)
+            
+        end
+
+        function obj = initClustering(obj)
+            %INITCLUSTERING repeats the first clustering for the number of input images
+            %
+            %   Usage:
+            %   obj = initClustering(obj) makes a vector of N copies of 
+            %   the first clustering object in obj.clustering, with N the 
+            %   number of input objects at obj.input.
+            
+            if isempty(obj.clustering)
+                error('No clustering method selected. Please assign clustering object first.')
+            end
+            
+            em = obj.clustering.empty(0,numel(obj.input));
+            em(1,:) = obj.clustering(1);
+            obj.clustering = em;
             
         end
         
