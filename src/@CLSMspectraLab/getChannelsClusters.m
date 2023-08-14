@@ -9,16 +9,13 @@ function spectrum = getChannelsClusters(obj,indices)
 %   output file of XANES Wizard is requested via an input dialog box. The
 %   number of result files must match the number of indices.
 
-if max(indices) > obj.nInput
-    error('Not all specified indices do exist.')
+if max(indices) > obj.nInput || min(indices) < 1
+    error('Please provide valid indices')
 end
 
 % preallocate
 spectrum = cell(numel(indices),1);
 nPixels = cell(numel(indices),1);
-if nargout > 2
-    clustermaps = cell(numel(indices),1);
-end
 
 % turn mask off
 maskState = obj.maskFlag;
@@ -27,7 +24,7 @@ obj.maskFlag = false;
 for ii = 1:numel(indices)
     index = indices(ii);
     
-    ClusterResult = obj.clustering(index).I;
+    ClusterResult = obj.clustering.getClusterMap(index);
     
     if obj.input(index).isVolume || obj.input(index).isTimeseries
         warning('Data set %i contains is a volume and/or timeseries. These dimensions are averaged.',indices(ii))

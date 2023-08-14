@@ -9,6 +9,7 @@ classdef importXANESwizard < pixelClustering.abstract
     properties
         loadFilepath = []; % filepath to the 'KmeansResults.mat' output by XANES Wizard
         nClusters = []; % number of clusters
+        removeSinglePix = true; % remove single pixels in processed cluster map
     end
     
     properties(Hidden)

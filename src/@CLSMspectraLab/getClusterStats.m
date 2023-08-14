@@ -1,4 +1,13 @@
-function getClusterStats(obj,savepath)
+function getClusterStats(obj,savepath,indices)
+% GETCLUSTERSTATS saves some statistical properties of the cluster map
+%   Usage:
+%   obj.getClusterStats()L Saves in .xlsx file selected by user via input
+%       dialog for all data.
+%
+%   obj.getClusterStats(savepath): Saves in path specified in 'savepath'
+%
+%   obj.getClusterStats(savepath,indicies): only saves the data with
+%   indices in 
 
 if nargin < 2 || isempty(savepath)
     [file,path] = uiputfile('*.xlsx',...
@@ -9,42 +18,46 @@ if nargin < 2 || isempty(savepath)
     savepath = fullfile(path,file);
 end
 
-N = getPreallocSize(obj);
-T = cell(N,1);
+if nargin < 3 || isempty(indices)
+    indices = 1:obj.nInput;
+end
 
-kk = 1;
-for ii = 1:obj.nInput
-    for jj = 1:obj.clustering(ii).nClusters
-        thisMap = obj.clustering(ii).I == jj;
-        T{kk} = getStats(thisMap);
-        writetable(T{kk},savepath,"WriteMode","overwritesheet","sheet",sprintf('%s_Cluster%s',num2str(ii),num2str(jj)))
-        kk = kk + 1;
+if max(indices) > obj.nInput || min(indices) < 1
+    error('Please provide valid indices')
+end
+
+T_mean = [];
+for ii = indices
+    if isempty(obj.clustering(ii).I)
+        continue
     end
+    [pixelSize,unitName] = obj.input(1).unit.getUnitFactor('x');
+    processedClusterMap = getProcessedClusterMap(obj.clustering,ii);
+    for jj = 1:obj.clustering(ii).nClusters
+        thisMap = processedClusterMap{jj};
+        T = getStats(thisMap,pixelSize,unitName);
+        writetable(T,savepath,"WriteMode","overwritesheet","sheet",sprintf('%s_Cluster%s',num2str(ii),num2str(jj)))
+    end
+    T_mean = [T_mean; varfun(@mean, T, 'InputVariables', @isnumeric)];
+end
+if ~isempty(T_mean)
+    writetable(T_mean,savepath,"WriteMode","overwritesheet","sheet",sprintf('Mean'));
 end
 
 end
 
-function N = getPreallocSize(obj)
-
-N = 0;
-for ii = 1:obj.nInput
-    N = N + obj.clustering(ii).nClusters;
-end
-
-end
-
-function T = getStats(BW)
-
+function T = getStats(BW,pixelSize,unitName)
     T1 = regionprops("table",BW,"Area","FilledArea","Eccentricity","Centroid");
-    T1(T1.Area <= sizeThreshold,:) = [];
     NN = nan(size(T1,1),1);
     for ii = 1:numel(NN)
         [~,NN(ii)] = knnsearch(T1.Centroid(ii,1),T1.Centroid(ii,2),'K',1,'Distance','euclidean');
     end
     T2 = table(NN);
     T = [T1 T2];
-%     Area = mean(T.Area);
-%     FilledArea = mean(T.FilledArea);
-%     Eccentricity = mean(T.Eccentricity);
-%     NN = mean(NN);
+
+    if ~isempty(pixelSize)
+        T_NN_unit = table(T.Area .* pixelSize^2, T.FilledArea .* pixelSize^2, T.NN .* pixelSize,'VariableNames',{['Area_' unitName '2'],['FilledArea_' unitName '2'],['NN_' unitName]});
+    end
+
+    T = [T T_NN_unit];
 end

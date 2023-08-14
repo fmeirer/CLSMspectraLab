@@ -18,7 +18,6 @@ classdef CLSMspectraLab
         normalization = pixelNormalization.sum2one; % normalization from normalization domain for clustering
         normalizationFlag = true; % if true, the normalization is applied
         clustering = pixelClustering.importXANESwizard; % clustering of pixels into classes
-        clusteringFlag = true; % if true, clustering is applied (will this be necessary??)
     end
 
     properties(SetAccess = private,Hidden)
