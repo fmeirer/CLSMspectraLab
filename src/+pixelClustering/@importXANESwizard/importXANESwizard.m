@@ -1,5 +1,5 @@
 classdef importXANESwizard < pixelClustering.abstract
-    %FIRSTPCMASK Computes the mask
+    %IMPORTXANESWIZARD Computes the mask
     %   Detailed explanation goes here
     
     properties(Constant)
@@ -9,7 +9,8 @@ classdef importXANESwizard < pixelClustering.abstract
     properties
         loadFilepath = []; % filepath to the 'KmeansResults.mat' output by XANES Wizard
         nClusters = []; % number of clusters
-        removeSinglePix = true; % remove single pixels in processed cluster map
+        minPixGroupSize = 2; % minimum number of pixels in group to be considered a particle for in the processed cluster map
+        diagonalPixConnected = true; % if true, connectivity of 8; otherwise, 6
     end
     
     properties(Hidden)
@@ -17,12 +18,12 @@ classdef importXANESwizard < pixelClustering.abstract
     
     methods
         function obj = importXANESwizard(varargin)
-            %FIRSTPCMASK Construct an instance of this class
+            %IMPORTXANESWIZARD Construct an instance of this class
             %
             % Usage:
-            %   obj = firstpcMask(varargin) with varargin Name-Value pairs,
+            %   obj = importXANESwizard(varargin) with varargin Name-Value pairs,
             %   e.g. if we set the property 'prop' to 5: 
-            %   obj = firstpcMask('prop',5).
+            %   obj = importXANESwizard('prop',5).
             if nargin > 0
                 nIn = numel(varargin);
                 if mod(nIn,2) ~= 0
@@ -59,11 +60,11 @@ classdef importXANESwizard < pixelClustering.abstract
             try
                 out = open(filename);
             catch
-                error('Could not open file: ''%s''',filename{ii})
+                error('Could not open file: ''%s''',filename)
             end
             
             if ~isfield(out,'ClusterResult')
-                error('Cluster results were not found in file: ''%s''',filename{ii})
+                error('Cluster results were not found in file: ''%s''',filename)
             end
             
             if min(out.ClusterResult{1,3},[],'all') == 0
@@ -72,7 +73,7 @@ classdef importXANESwizard < pixelClustering.abstract
                 clustermap = out.ClusterResult{1,3};
             end
             obj = obj.addImage(clustermap,'x','y'); % 3D is not yet supported
-            obj.nClusters = max(obj.I,[],'all'); % starts counting at 0
+            obj.nClusters = max(obj.I,[],'all');
         end
 
         function obj = setLoadFilenames(obj,filepath)
@@ -80,7 +81,7 @@ classdef importXANESwizard < pixelClustering.abstract
             % If this function is not run, a file selection dialog box will
             % prompt for a file path when running compute.
 
-            obj.loadFilepath = filepath;
+            [obj.loadFilepath] = deal(filepath);
         end
 
     end

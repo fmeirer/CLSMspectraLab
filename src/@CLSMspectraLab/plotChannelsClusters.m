@@ -32,14 +32,14 @@ channelVals = obj.getChannelsClusters(indices);
 hps = [];
 kk = 1;
 legNames = {};
-for ii = indices
-    hps = [hps; gobjects(obj.clustering(ii).nClusters,1)];
-    for jj = 1:obj.clustering(ii).nClusters
+for ii = 1:numel(indices)
+    hps = [hps; gobjects(obj.clustering(indices(ii)).nClusters,1)];
+    for jj = 1:obj.clustering(indices(ii)).nClusters
         hps(kk) = plot(ha,(1:size(channelVals{ii},1)),channelVals{ii}(:,jj),'.-');
         if numel(indices) == 1
             legNames{kk} = sprintf('Cluster %s',num2str(jj));
         else
-            legNames{kk} = sprintf('Data %s, cluster %s',num2str(ii),num2str(jj));
+            legNames{kk} = sprintf('Data %s, cluster %s',num2str(indices(ii)),num2str(jj));
         end
         kk = kk + 1;
         hold on
