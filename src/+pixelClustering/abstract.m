@@ -29,7 +29,8 @@ classdef (Abstract) abstract < imageStack
             clusterMap = getClusterMap(obj,id);
             imagesc(ha,clusterMap)
             axis equal
-            n = obj(id).nClusters;
+            uni = unique(clusterMap);
+            n = (max(uni) - min(uni)) + 1;
             colormap(lines(n))
             colorbar();
             title('Unprocessed cluster map')

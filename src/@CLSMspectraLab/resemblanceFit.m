@@ -90,23 +90,23 @@ for i=1:binx1
         ind=find(tot==min1);
         ind=ind(1);
         minm(i,j)=min1;
-        if (ind==1) && (nave(i,j)<thresholdal)
+        if (ind==1) && (nave(i,j)<thresholdal) % Al
             outp(i,j)=20;
             imagef(i,j,:)=[0 255 0];
-        elseif ind==2
+        elseif ind==2 % clay
             outp(i,j)=50;
             imagef(i,j,:)=[255 0 0];
-        elseif ind==3
+        elseif ind==3 % USY
             outp(i,j)=100;
             imagef(i,j,:)=[0 0 255];
-        elseif ind==4
+        elseif ind==4 % Si
             outp(i,j)=80;  
             imagef(i,j,:)=[255 255 0];
-        else
+        else % Bg
             outp(i,j)=1;
             imagef(i,j,:)=[0 0 0];
         end
-        if (nave(i,j)<thresholdbgk) && outp(i,j)~=20
+        if (nave(i,j)<thresholdbgk) && outp(i,j)~=20 % Bg
             outp(i,j)=1;
             imagef(i,j,:)=[0 0 0];
         end
