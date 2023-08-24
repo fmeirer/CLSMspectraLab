@@ -37,8 +37,8 @@ for ii = indices
         thisMap = processedClusterMap{jj};
         T = getStats(thisMap,pixelSize,unitName);
         writetable(T,savepath,"WriteMode","overwritesheet","sheet",sprintf('%s_Cluster%s',num2str(ii),num2str(jj)))
+        T_mean = [T_mean; varfun(@mean, T, 'InputVariables', @isnumeric)];
     end
-    T_mean = [T_mean; varfun(@mean, T, 'InputVariables', @isnumeric)];
 end
 if ~isempty(T_mean)
     writetable(T_mean,savepath,"WriteMode","overwritesheet","sheet",sprintf('Mean'));

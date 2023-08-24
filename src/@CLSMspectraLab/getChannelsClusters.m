@@ -17,9 +17,9 @@ end
 spectrum = cell(numel(indices),1);
 nPixels = cell(numel(indices),1);
 
-% turn mask off
-maskState = obj.maskFlag;
-obj.maskFlag = false;
+% % turn mask off
+% maskState = obj.maskFlag;
+% obj.maskFlag = false;
 
 for ii = 1:numel(indices)
     index = indices(ii);
@@ -42,15 +42,15 @@ for ii = 1:numel(indices)
     
     for jj = 1:obj.clustering(ii).nClusters
         thisCluster = ClusterResult == jj;
-        nPixels{ii}(jj) = sum(thisCluster,'all');
+        nPixels{ii}(jj) = sum(thisCluster,'all','omitnan');
         % compute mean
-        spectrum{ii}(:,jj) = sum(bsxfun(@times, cast(I,'double'), cast(thisCluster,'double')),[1 2])./nPixels{ii}(jj);
+        spectrum{ii}(:,jj) = sum(bsxfun(@times, cast(I,'double'), cast(thisCluster,'double')),[1 2],'omitnan')./nPixels{ii}(jj);
     end
 
 end
 
-% restore mask
-obj.maskFlag = maskState;
+% % restore mask
+% obj.maskFlag = maskState;
 
 end
 

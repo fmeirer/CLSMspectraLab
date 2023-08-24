@@ -1,27 +1,26 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3767380364" file="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI\CLSMspectraLabGUI.prj" location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1940451658" file="/Users/erik/Documents/GitHub/CLSMspectraLab/src/GUI/CLSMspectraLabGUI.prj" location="/Users/erik/Documents/GitHub/CLSMspectraLab/src/GUI" name="CLSMspectraLabGUI" target="target.mlapps" target-name="Package App">
     <param.appname>CLSMspectraLabGUI</param.appname>
     <param.authnamewatermark>J.J. Erik Maris</param.authnamewatermark>
-    <param.email>j.j.e.maris@uu.nl</param.email>
-    <param.company>Utrecht University</param.company>
-    <param.icon>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_24.png</param.icon>
+    <param.email />
+    <param.company />
+    <param.icon>${PROJECT_ROOT}/CLSMspectraLabGUI_resources/icon_24.png</param.icon>
     <param.icons>
-      <file>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_48.png</file>
-      <file>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_24.png</file>
-      <file>${PROJECT_ROOT}\CLSMspectraLabGUI_resources\icon_16.png</file>
+      <file>${PROJECT_ROOT}/CLSMspectraLabGUI_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/CLSMspectraLabGUI_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/CLSMspectraLabGUI_resources/icon_16.png</file>
     </param.icons>
     <param.summary>Software for the analysis of spectra obtained with a confocal laser scanning microscope.</param.summary>
     <param.description />
-    <param.screenshot>C:\Users\3971627\AppData\Local\Temp\tp208226f5_394e_42ba_a9ba_afa1d64c708e.png</param.screenshot>
-    <param.version>0.26</param.version>
+    <param.screenshot>/private/var/folders/91/rkqwlqfn0jq11hg_2qkc8k200000gn/T/tpf519b535_fb9a_4806_868a_79debe58f8d4.png</param.screenshot>
+    <param.version>0.30</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</param.output>
+    <param.output>${PROJECT_ROOT}</param.output>
     <param.guid>f54dbd7c-cbd0-4d88-bca8-9b21ad79c8f0</param.guid>
     <unset>
-      <param.authnamewatermark />
       <param.email />
       <param.company />
       <param.description />
@@ -29,71 +28,80 @@
       <param.products.id />
       <param.products.version />
       <param.platforms />
+      <param.output />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}\CLSMspectraLabGUI.mlapp</file>
+      <file>${PROJECT_ROOT}/CLSMspectraLabGUI.mlapp</file>
     </fileset.main>
     <fileset.depfun>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\@unitProps\unitProps.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfCheckJavaMemory.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfCheckJavaPath.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetFileExtensions.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetPlane.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfGetReader.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfInitLogging.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bfopen.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\private\is_octave.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\imageStack-master_20220701\src\@imageStack\imageStack.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\CIE 1931 Standard Observer (1nm).xlsx</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\colorMatchingFunctions.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\lambda2xyz.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\MATLAB Color Tools\tbx\spectrumColors.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\nancat\nancat.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@linear\linear.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\@reference\reference.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+bgCorrection\abstract.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@emptyMask\emptyMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\firstpcMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\@firstpcMask\private\compute.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+imageMask\abstract.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@max2one\max2one.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@singlePoint\singlePoint.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\@sum2one\sum2one.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\+pixelNormalization\abstract.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\CLSMspectraLab.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\export4XANES_Wizard.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getBinnedObj.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getChannelsROI.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\getXANES_WizardSpectrum.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\maskSaturatedPixels.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannels.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannelsMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotChannelsROI.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotRatioLog10_2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotRGBcolormap2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotSumIntensity2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\plotTrueColor2D.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\private\computePCAspectraMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\@CLSMspectraLab\private\plotMask.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\getRGBbins.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\javaaddpath_for_CLSMspectraLab.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\plotTrueColour.m</file>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\src\functions\subplotDimensions.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/MATLAB Color Tools/tbx/CIE 1931 Standard Observer (1nm).xlsx</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/MATLAB Color Tools/tbx/colorMatchingFunctions.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/MATLAB Color Tools/tbx/lambda2xyz.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/MATLAB Color Tools/tbx/spectrumColors.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfCheckJavaMemory.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfCheckJavaPath.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfGetFileExtensions.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfGetPlane.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfGetReader.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfInitLogging.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfTestInRange.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bfopen.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/private/is_octave.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/imageStack-master_20220701/src/@imageStack/imageStack.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/unitProps-main_20220517/src/@unitProps/unitProps.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+bgCorrection/@linear/linear.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+bgCorrection/@reference/reference.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+bgCorrection/abstract.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+imageMask/@emptyMask/emptyMask.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+imageMask/@firstpcMask/firstpcMask.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+imageMask/@firstpcMask/private/compute.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+imageMask/abstract.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelClustering/@importXANESwizard/importXANESwizard.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelClustering/@similarityFit/similarityFit.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelClustering/abstract.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelNormalization/@max2one/max2one.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelNormalization/@singlePoint/singlePoint.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelNormalization/@sum2one/sum2one.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/+pixelNormalization/abstract.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/CLSMspectraLab.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/export4XANES_Wizard.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/export4XANES_Wizard_bins.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/getBinnedObj.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/getChannelsClusters.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/getChannelsROI.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/getClusterStats.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/getXANES_WizardSpectrum.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/maskSaturatedPixels.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotChannels.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotChannelsClusters.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotChannelsMask.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotChannelsROI.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotRGBcolormap2D.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotRatioLog10_2D.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotRatio_2D.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotSumIntensity2D.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/plotTrueColor2D.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/private/computePCAspectraMask.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/private/plotMask.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/@CLSMspectraLab/resemblanceFit.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/functions/getRGBbins.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/functions/javaaddpath_for_CLSMspectraLab.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/functions/plotTrueColour.m</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/src/functions/subplotDimensions.m</file>
     </fileset.depfun>
     <fileset.resources>
-      <file>C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin\external\bfmatlab\bioformats_package.jar</file>
+      <file>/Users/erik/Documents/GitHub/CLSMspectraLab/bin/external/bfmatlab/bioformats_package.jar</file>
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab" name="bin" optional="false">C:\Users\3971627\OneDrive - Universiteit Utrecht\PhD\software\Git MATLAB CLSM Spectra Lab\bin</file>
+      <file location="/Users/erik/Documents/GitHub/CLSMspectraLab/src" name="GUI" optional="false">/Users/erik/Documents/GitHub/CLSMspectraLab/src/GUI</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2021b</root>
+      <root>/Applications/MATLAB_R2022b.app</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />
-        <toolbox name="gpucoder" />
         <toolbox name="fixedpoint" />
         <toolbox name="matlabhdlcoder" />
         <toolbox name="neuralnetwork" />
@@ -107,11 +115,6 @@
         <embeddedcoder>
           <enabled>true</enabled>
         </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <gpucoder>
-          <enabled>true</enabled>
-        </gpucoder>
       </toolbox>
       <toolbox>
         <fixedpoint>
@@ -130,18 +133,18 @@
       </toolbox>
     </matlab>
     <platform>
-      <unix>false</unix>
-      <mac>false</mac>
-      <windows>true</windows>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
       <win2k>false</win2k>
       <winxp>false</winxp>
       <vista>false</vista>
       <linux>false</linux>
       <solaris>false</solaris>
-      <osver>10.0</osver>
+      <osver>13.4.1</osver>
       <os32>false</os32>
       <os64>true</os64>
-      <arch>win64</arch>
+      <arch>maci64</arch>
       <matlab>true</matlab>
     </platform>
   </configuration>

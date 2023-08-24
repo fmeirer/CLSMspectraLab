@@ -280,7 +280,12 @@ classdef CLSMspectraLab
                 obj = initClustering(obj);
             end
 
+            maskState = obj.maskFlag;
+            obj.maskFlag = false; % do not use a mask for the clustering
+
             [iStack,~,name] = getProcessedImageStack(obj,id);
+
+            obj.maskFlag = maskState;
             
             for ii = 1:numel(id)
                 obj.clustering(id(ii)) = obj.clustering(id(ii)).compute(iStack(ii));
