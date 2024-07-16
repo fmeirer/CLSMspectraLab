@@ -5,3 +5,4 @@ Please makes sure the following code is in bin/ext/
 (2) unitProps MATLAB class. Download at: https://github.com/ErikMaris/unitProps
 (3) nancat MATLAB function. Download at: https://nl.mathworks.com/matlabcentral/fileexchange/40416-nancat
 (4) imageStack MATLAB class. Download at: https://github.com/ErikMaris/imageStack
+(5) Color Tools for MATLAB. Download at: https://nl.mathworks.com/matlabcentral/fileexchange/64161-color-tools-for-matlab
