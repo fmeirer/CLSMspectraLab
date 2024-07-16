@@ -86,4 +86,4 @@ For more advanced use of the class, please check the documentation and source co
 
 ## License
 
-This project is licensed under the terms of the [MIT License](/LICENSE.md)
+This project is licensed under the terms of the [GPL-3.0 License](/LICENSE.md)
