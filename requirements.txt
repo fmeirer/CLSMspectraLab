@@ -2,7 +2,7 @@ Written and tested in MATLAB 2019b
 
 Please makes sure the following code is in bin/ext/
 (1) BioFormats MATLAB toolbox. Download at: https://www.openmicroscopy.org/bio-formats/downloads/
-(2) unitProps MATLAB class. Download at: https://github.com/ErikMaris/unitProps
+(2) unitProps MATLAB class. Download at: https://github.com/fmeirer/unitProps / https://github.com/ErikMaris/unitProps (old location)
 (3) nancat MATLAB function. Download at: https://nl.mathworks.com/matlabcentral/fileexchange/40416-nancat
-(4) imageStack MATLAB class. Download at: https://github.com/ErikMaris/imageStack
+(4) imageStack MATLAB class. Download at: https://github.com/fmeirer/imageStack / https://github.com/ErikMaris/imageStack (old location)
 (5) Color Tools for MATLAB. Download at: https://nl.mathworks.com/matlabcentral/fileexchange/64161-color-tools-for-matlab
